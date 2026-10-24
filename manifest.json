@@ -1,0 +1,17 @@
+{
+  "name": "Puzzle Magique",
+  "short_name": "Puzzle",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fff9f4",
+  "theme_color": "#fff9f4",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://media.base44.com/images/public/6add0ef1f9d87dbc214db732/7e527848b_generated_image.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
