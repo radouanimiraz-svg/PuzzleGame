@@ -112,7 +112,7 @@
       <div class="logo">&#129513;</div>
       <div>
         <h1>Puzzle Magique</h1>
-        <p class="sub">Assemble les images, gagne des étoiles !</p>
+        <p class="sub">Assemble les images, gagne des Ã©toiles !</p>
       </div>
     </header>
 
@@ -122,7 +122,7 @@
     </div>
 
     <div class="section">
-      <h2 class="step"><span class="num">2</span> Choisis ta difficulté</h2>
+      <h2 class="step"><span class="num">2</span> Choisis ta difficultÃ©</h2>
       <div class="levels" id="levels"></div>
     </div>
 
@@ -137,11 +137,11 @@
       <button class="icon-btn" id="back" aria-label="Retour">&#8592;</button>
       <div class="game-title">
         <h2 id="game-name">Puzzle</h2>
-        <p class="mini" id="game-level">Facile · 4 pièces</p>
+        <p class="mini" id="game-level">Facile Â· 4 piÃ¨ces</p>
       </div>
       <div class="model">
-        <img id="model-img" alt="Modèle du puzzle" />
-        <span>Modèle</span>
+        <img id="model-img" alt="ModÃ¨le du puzzle" />
+        <span>ModÃ¨le</span>
       </div>
     </header>
 
@@ -158,8 +158,8 @@
       <div class="board" id="board"></div>
     </div>
 
-    <p class="hint">Touche deux pièces pour les échanger</p>
-    <button class="btn btn-ghost" id="reshuffle">&#8635; Mélanger à nouveau</button>
+    <p class="hint">Touche deux piÃ¨ces pour les Ã©changer</p>
+    <button class="btn btn-ghost" id="reshuffle">&#8635; MÃ©langer Ã  nouveau</button>
   </section>
 </main>
 
@@ -167,9 +167,9 @@
   <div class="win-card">
     <div class="stars" id="win-stars"></div>
     <h2>Bravo !</h2>
-    <p class="win-sub" id="win-sub">Le puzzle est terminé.</p>
+    <p class="win-sub" id="win-sub">Le puzzle est terminÃ©.</p>
     <div class="win-stats">
-      <div><b id="win-pieces">4</b><span>pièces</span></div>
+      <div><b id="win-pieces">4</b><span>piÃ¨ces</span></div>
       <div><b id="win-moves">0</b><span>coups</span></div>
       <div><b id="win-time">0:00</b><span>temps</span></div>
     </div>
@@ -182,8 +182,8 @@
 
 <script>
   var PUZZLES = [
-    { id: 'lion', name: 'Léo le lion', place: 'Dans la savane', img: 'https://media.base44.com/images/public/6add0ef1f9d87dbc214db732/7e527848b_generated_image.png' },
-    { id: 'elephant', name: "Bibi l'éléphant", place: 'Dans la jungle', img: 'https://media.base44.com/images/public/6add0ef1f9d87dbc214db732/66d96a089_generated_image.png' },
+    { id: 'lion', name: 'LÃ©o le lion', place: 'Dans la savane', img: 'https://media.base44.com/images/public/6add0ef1f9d87dbc214db732/7e527848b_generated_image.png' },
+    { id: 'elephant', name: "Bibi l'Ã©lÃ©phant", place: 'Dans la jungle', img: 'https://media.base44.com/images/public/6add0ef1f9d87dbc214db732/66d96a089_generated_image.png' },
     { id: 'girafe', name: 'Gigi la girafe', place: "Sous l'arc-en-ciel", img: 'https://media.base44.com/images/public/6add0ef1f9d87dbc214db732/c7e96b6e3_generated_image.png' },
     { id: 'papillon', name: 'Lola le papillon', place: 'Dans le jardin', img: 'https://media.base44.com/images/public/6add0ef1f9d87dbc214db732/6a27ec510_generated_image.png' }
   ];
@@ -197,7 +197,7 @@
   var state = { puzzle: 0, level: 0, tiles: [], sel: null, moves: 0, seconds: 0, timer: null, solved: false };
   var cells = [];
 
-  // --- SYSTÈME DE SON (Web Audio API) ---
+  // --- SYSTÃˆME DE SON (Web Audio API) ---
   var audioCtx = null;
 
   function getAudioContext() {
@@ -207,7 +207,6 @@
     return audioCtx;
   }
 
-  // Son doux lorsqu'on sélectionne ou échange une pièce
   function playPopSound() {
     try {
       var ctx = getAudioContext();
@@ -229,11 +228,10 @@
     } catch(e) {}
   }
 
-  // Petite mélodie joyeuse de victoire
   function playWinSound() {
     try {
       var ctx = getAudioContext();
-      var notes = [523.25, 659.25, 783.99, 1046.50]; // Do, Mi, Sol, Do (aigu)
+      var notes = [523.25, 659.25, 783.99, 1046.50];
       notes.forEach(function(freq, index) {
         var osc = ctx.createOscillator();
         var gain = ctx.createGain();
@@ -303,7 +301,7 @@
       card.innerHTML =
         '<div class="dots" style="grid-template-columns:repeat(' + lvl.cols + ',10px)">' + dots + '</div>' +
         '<p class="level-name">' + lvl.label + '</p>' +
-        '<p class="level-pieces">' + lvl.pieces + ' pièces</p>';
+        '<p class="level-pieces">' + lvl.pieces + ' piÃ¨ces</p>';
       card.addEventListener('click', function () { state.level = index; syncSetup(); });
       levels.appendChild(card);
     });
@@ -341,7 +339,7 @@
     $('win').classList.add('hidden');
     $('confetti').innerHTML = '';
     $('game-name').textContent = pz.name;
-    $('game-level').textContent = lvl.label + ' · ' + lvl.pieces + ' pièces';
+    $('game-level').textContent = lvl.label + ' Â· ' + lvl.pieces + ' piÃ¨ces';
     $('model-img').src = pz.img;
     $('board').classList.remove('done');
     $('time').textContent = '0:00';
@@ -361,7 +359,7 @@
       var cell = document.createElement('button');
       cell.type = 'button';
       cell.className = 'piece';
-      cell.setAttribute('aria-label', 'Pièce ' + (slot + 1));
+      cell.setAttribute('aria-label', 'PiÃ¨ce ' + (slot + 1));
       cell.addEventListener('click', (function (s) { return function () { tap(s); }; })(slot));
       board.appendChild(cell);
       cells.push(cell);
@@ -396,7 +394,7 @@
     state.tiles[slot] = tmp;
     state.sel = null;
     state.moves++;
-    playPopSound(); // Son joué lors de l'échange de pièces
+    playPopSound();
     paint();
     updateStats();
     checkSolved();
@@ -415,7 +413,7 @@
     for (var i = 0; i < state.tiles.length; i++) if (state.tiles[i] !== i) return;
     state.solved = true;
     stopTimer();
-    playWinSound(); // Son de victoire joué à la résolution du puzzle
+    playWinSound();
     $('board').classList.add('done');
     popConfetti();
     setTimeout(showWin, 550);
@@ -426,9 +424,9 @@
     var pz = PUZZLES[state.puzzle];
     var stars = state.moves <= Math.round(lvl.pieces * 1.5) ? 3 : (state.moves <= lvl.pieces * 3 ? 2 : 1);
     var html = '';
-    for (var i = 0; i < 3; i++) html += '<span class="star' + (i < stars ? ' on' : '') + '">&#9733;</span>';
+    for (var i = 0; i < 3; i++) html += '<span class=' + (i < stars ? '"star on"' : '"star"') + '>&#9733;</span>';
     $('win-stars').innerHTML = html;
-    $('win-sub').textContent = 'Le puzzle de ' + pz.name + ' est terminé.';
+    $('win-sub').textContent = 'Le puzzle de ' + pz.name + ' est terminÃ©.';
     $('win-pieces').textContent = lvl.pieces;
     $('win-moves').textContent = state.moves;
     $('win-time').textContent = fmt(state.seconds);
@@ -470,6 +468,15 @@
   $('other').addEventListener('click', goSetup);
   $('replay').addEventListener('click', newRound);
   $('reshuffle').addEventListener('click', newRound);
+
+  // Enregistrement du Service Worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('./sw.js')
+        .then(function(reg) { console.log('SW enregistrÃ©:', reg.scope); })
+        .catch(function(err) { console.log('Erreur SW:', err); });
+    });
+  }
 
   buildSetup();
 </script>
