@@ -1,18 +1,14 @@
 {
-  "name": "Puzzle Magique",
-  "short_name": "Puzzle",
+  "id": "puzzle-magique-app",
+  "name": "Puzzle Magique - Jeu de puzzle pour enfants",
+  "short_name": "Puzzle Magique",
+  "description": "Un jeu de puzzle amusant et éducatif pour les enfants avec des animaux mignons.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#fff9f4",
   "theme_color": "#fff9f4",
   "orientation": "portrait",
   "icons": [
-    {
-      "src": "https://media.base44.com/images/public/6add0ef1f9d87dbc214db732/7e527848b_generated_image.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
     {
       "src": "https://media.base44.com/images/public/6add0ef1f9d87dbc214db732/7e527848b_generated_image.png",
       "sizes": "512x512",
